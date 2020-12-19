@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import AddTask from '../../components/AddTask/AddTask'
 import './Header.css';
 

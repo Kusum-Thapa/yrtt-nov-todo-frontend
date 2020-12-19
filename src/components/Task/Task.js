@@ -1,13 +1,16 @@
+/* eslint-disable react/prop-types */
 
-import './Task.css';
+import "./Task.css";
 
-function Task({complete, text}) {
+function Task({ complete, text, id, deleteTask }) {
     return (
-        <li className={`task ${complete ? 'task--complete': ''}`}>
-            <p className="task__text">{ text }</p>
-            { complete === false && <button className="button">Complete</button>}
-            <button className="button">Delete</button>
-        </li>    
+        <li className={`task ${complete ? "task--complete" : ""}`}>
+            <p className="task__text">{text}</p>
+            {complete === false && <button className="button">Complete</button>}
+            <button onClick={() => deleteTask(id)} className="button">
+                Delete
+            </button>
+        </li>
     );
 }
 
