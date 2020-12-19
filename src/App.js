@@ -11,7 +11,7 @@ function App() {
     { text: 'clean the kitchen', completed: false, date: '2020-12-18', id: '003' },
     { text: 'Go for walk', completed: true, date: '2020-12-18', id: '004' },
     { text: 'Go to sleep', completed: false, date: '2020-12-18', id: '005' },
-    { text: 'Have a rest', completed: false, date: '2020-12-18', id: '06' }
+    { text: 'Have a rest', completed: false, date: '2020-12-18', id: '006' }
   ])
 
   const deleteTask = id => {
@@ -19,12 +19,23 @@ function App() {
     setTasks(updatedTasks)
   }
 
+  const addTask = text => {
+    const newTask ={
+      text: text,
+      completed: false,
+      date: '2021-12-01',
+      id:'007'
+    }
+
+    const updatedTasks = [...tasks, newTask ]
+    setTasks(updatedTasks)
+  }
   const incompleteTasks = tasks.filter(task => !task.completed)
   const completeTasks = tasks.filter(task => task.completed)
 
   return (
     <div className="App">
-      <Header taskCount={incompleteTasks.length} />
+      <Header taskCount={incompleteTasks.length} addTask ={ addTask }/>
       <main className="all-tasks">
         <TaskList deleteTask ={ deleteTask } tasks={incompleteTasks} status="incomplete" />
         <TaskList deleteTask ={ deleteTask } tasks={completeTasks} status="complete" />
